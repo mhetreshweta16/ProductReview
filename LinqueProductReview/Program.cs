@@ -22,12 +22,27 @@ namespace LinqueProductReview
             };
            
         }
-        public void DisplayProduct(List<ProductReview> list)
+        /// <summary>
+        /// Displays the all produc list Review
+        /// </summary>
+        /// <param name="list">The list.</param>
+        public static void DisplayProduct(List<ProductReview> list)
         {
             foreach (ProductReview e in list)
             {
                 Console.WriteLine("ProductId: " + e.productId + " userId: " + e.userId + " review: " + e.review + " rating: " + e.rating + " isLike: " + e.isLike);
             }
+        }
+
+        /// <summary>
+        /// Retrives the top 3 records from list order by rating.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        public static void  RetriveTopRecords(List<ProductReview> list)
+        {
+            var res = from product in list orderby product.rating descending select product;
+            var top = res.Take(3);
+            DisplayProduct(list);
         }
     }
 }
