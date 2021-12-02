@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LinqueProductReview
 {
@@ -6,7 +7,27 @@ namespace LinqueProductReview
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+            //UC1 Adding Default Values
+
+            List<ProductReview> list = new List<ProductReview>()
+            {
+                new ProductReview(){ productId=1 ,userId=1,review="good",rating=15,isLike=true },
+                new ProductReview(){ productId=2 ,userId=2,review="good",rating=18,isLike=true },
+                new ProductReview(){ productId=3 ,userId=3,review="not good",rating=07,isLike=false },
+                new ProductReview(){ productId=1 ,userId=2,review="good",rating=15,isLike=true },
+                new ProductReview(){ productId=2 ,userId=1,review="not good",rating=10,isLike=false },
+                new ProductReview(){ productId=4 ,userId=1,review="good",rating=19,isLike=true },
+                new ProductReview(){ productId=3 ,userId=4,review="good",rating=13,isLike=true },
+            };
+           
+        }
+        public void DisplayProduct(List<ProductReview> list)
+        {
+            foreach (ProductReview e in list)
+            {
+                Console.WriteLine("ProductId: " + e.productId + " userId: " + e.userId + " review: " + e.review + " rating: " + e.rating + " isLike: " + e.isLike);
+            }
         }
     }
 }
